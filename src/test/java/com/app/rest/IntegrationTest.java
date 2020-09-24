@@ -64,19 +64,7 @@ public class IntegrationTest
      assertEquals( jsonMimeType, mimeType );
   }
   
-  @Test
-  public void givenUserExists_whenUserInfoIsRetrieved_thenRetrievedNameIsValid() throws ClientProtocolException, IOException {
-      // Given      
-      final HttpUriRequest request = new HttpGet("https://reqres.in/api/users/2");
-
-      // When
-      final HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
-
-      // Then
-      final User user = Mapper.retrieveResourceFromRootResponse(httpResponse, User.class); 
-      assertThat("Janet", Matchers.is(user.getFirst_name()));
-      assertThat("Weaver", Matchers.is(user.getLast_name()));
-  }
+ 
   
   @Test
   public void givenUserDoesNotExist_whenUserInfoIsSubmitted_then201IsReceived() throws ClientProtocolException, IOException {
